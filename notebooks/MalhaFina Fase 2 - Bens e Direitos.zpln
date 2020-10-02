@@ -1,0 +1,567 @@
+﻿{
+  "paragraphs": [
+    {
+      "title": "Caminho dos arquivos dataset",
+      "text": "val datasetsPath = \"/home/gustavo/Projetos/MalhaFina/datasets/\"",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:25-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdatasetsPath\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601589677519_231413253",
+      "id": "paragraph_1601589677519_231413253",
+      "dateCreated": "2020-10-01T19:01:17-0300",
+      "dateStarted": "2020-10-02T07:29:26-0300",
+      "dateFinished": "2020-10-02T07:29:26-0300",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:20713"
+    },
+    {
+      "title": "Criando primeiro RDD",
+      "text": "val rddContribuintes = sc.textFile(datasetsPath + \"contribuintes.csv\")\nrddContribuintes.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:26-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "CPF;Nome;Sexo;Data de Nascimento\n11111111111;Gustavo;M;10/10/1989\n22222222222;Sarah;F;18/10/1994\n33333333333;Ewerton;M;10/07/1995\n44444444444;Jessica;F;05/09/1993\n\u001b[1m\u001b[34mrddContribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/contribuintes.csv MapPartitionsRDD[63] at textFile at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=103",
+              "$$hashKey": "object:21107"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=104",
+              "$$hashKey": "object:21108"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601582477888_1736612005",
+      "id": "paragraph_1601582477888_1736612005",
+      "dateCreated": "2020-10-01T17:01:17-0300",
+      "dateStarted": "2020-10-02T07:29:26-0300",
+      "dateFinished": "2020-10-02T07:29:28-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20714"
+    },
+    {
+      "title": "Obter a primeira linha do arquivo, que no exemplo equivale ao cabeçalho",
+      "text": "val contribuintesHeader = rddContribuintes.first()",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:31:40-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mpessoasHeader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = CPF;Nome;Sexo;Data de Nascimento\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=105",
+              "$$hashKey": "object:21170"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601582528193_802286017",
+      "id": "paragraph_1601582528193_802286017",
+      "dateCreated": "2020-10-01T17:02:08-0300",
+      "dateStarted": "2020-10-02T07:29:28-0300",
+      "dateFinished": "2020-10-02T07:29:29-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20715"
+    },
+    {
+      "title": "Criar um RDD que contém todos os registros do arquivo, exceto o cabeçalho",
+      "text": "val contribuintes = rddContribuintes.filter(line => !line.equals(contribuintesHeader))\ncontribuintes.take(5).foreach(println)\n\nprintln(\"---\")\nprintln(\"Um total de \" + contribuintes.count() + \" contribuintes enviaram suas declarações.\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:31:51-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "11111111111;Gustavo;M;10/10/1989\n22222222222;Sarah;F;18/10/1994\n33333333333;Ewerton;M;10/07/1995\n44444444444;Jessica;F;05/09/1993\n55555555555;Flora;F;03/02/1994\n6 contribuintes enviaram suas declarações.\n\u001b[1m\u001b[34mcontribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = MapPartitionsRDD[64] at filter at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=106",
+              "$$hashKey": "object:21228"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=107",
+              "$$hashKey": "object:21229"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=108",
+              "$$hashKey": "object:21230"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601589322027_1570632810",
+      "id": "paragraph_1601589322027_1570632810",
+      "dateCreated": "2020-10-01T18:55:22-0300",
+      "dateStarted": "2020-10-02T07:29:29-0300",
+      "dateFinished": "2020-10-02T07:29:30-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20716"
+    },
+    {
+      "text": "// RDD a partir do arquivo enviado pelos Bancos\nval rddContas = sc.textFile(datasetsPath + \"instituicoes-financeiras/contas.csv\")\n// RDD a partir do arquivo enviado pelos Contribuintes\nval rddBensDireitosContribuintes = sc.textFile(datasetsPath + \"contribuintes/contas.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:30-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mrddContas\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/instituicoes-financeiras/contas.csv MapPartitionsRDD[66] at textFile at <console>:28\n\u001b[1m\u001b[34mrddBensDireitosContribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/contribuintes/contas.csv MapPartitionsRDD[68] at textFile at <console>:30\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601589585062_1248694952",
+      "id": "paragraph_1601589585062_1248694952",
+      "dateCreated": "2020-10-01T18:59:45-0300",
+      "dateStarted": "2020-10-02T07:29:30-0300",
+      "dateFinished": "2020-10-02T07:29:31-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20717"
+    },
+    {
+      "text": "val contasHeader = rddContas.first()\nval bensDireitosHeader = rddBensDireitosContribuintes.first()\n\nprintln(\"Inst. Financeiras enviaram:\")\n\nval contas = rddContas.filter(line => !line.equals(contasHeader))\ncontas.take(5).foreach(println)\n\nprintln(\"Contribuintes enviaram:\")\n\nval bensDireitosContribuintes = rddBensDireitosContribuintes.filter(linha => !linha.equals(bensDireitosHeader))\nbensDireitosContribuintes.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:31-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Inst. Financeiras enviaram:\n2020;11111111111;0001;1234;\"5\";1000;2000\n2020;11111111111;0002;5678;\"5\";40351.23;35781.22\n2020;22222222222;0001;1122;\"X\";5500;3500\n2020;22222222222;0001;1122;\"X\";32075.50;67039.12\nContribuintes enviaram:\n2020;11111111111;0001;1234;\"5\";1000;3000\n2020;11111111111;0002;5678;\"5\";40351.23;35781.22\n2020;22222222222;0001;1122;\"X\";5500;3500\n2020;22222222222;0001;1122;\"X\";32075.50;67039.12\n\u001b[1m\u001b[34mcontasHeader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = Ano Declaração;CPF;Agência (Sem DV);Conta;DV;Situação anterior;Situação vigente\n\u001b[1m\u001b[34mbensDireitosHeader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = Ano Declaração;CPF;Agência (Sem DV);Conta;DV;Situação anterior;Situação vigente\n\u001b[1m\u001b[34mcontas\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = MapPartitionsRDD[69] at filter at <console>:36\n\u001b[1m\u001b[34mbensDireitosContribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = MapPartitionsRDD[70] at filter at <console>:41\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=109",
+              "$$hashKey": "object:21348"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=110",
+              "$$hashKey": "object:21349"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=111",
+              "$$hashKey": "object:21350"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=112",
+              "$$hashKey": "object:21351"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=113",
+              "$$hashKey": "object:21352"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=114",
+              "$$hashKey": "object:21353"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601590206313_423096080",
+      "id": "paragraph_1601590206313_423096080",
+      "dateCreated": "2020-10-01T19:10:06-0300",
+      "dateStarted": "2020-10-02T07:29:31-0300",
+      "dateFinished": "2020-10-02T07:29:33-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20718"
+    },
+    {
+      "title": "Transformação do RDD de Contas obtendo a variação de saldo na conta",
+      "text": "// Utiliza os dados enviados pelas instituições financeiras\nval contasSaldo = contas.map(conta => {\n    val cpf = conta.split(\";\")(1)\n    val saldoVigente = conta.split(\";\")(6).toDouble\n    val saldoAnterior = conta.split(\";\")(5).toDouble\n    \n    ( cpf, (saldoVigente - saldoAnterior) )\n})\n\n// Utiliza os dados enviados pelos contribuintes\nval bensDireitosContribuintesSaldo = bensDireitosContribuintes.map(conta => {\n    val cpf = conta.split(\";\")(1)\n    val saldoVigente = conta.split(\";\")(6).toDouble\n    val saldoAnterior = conta.split(\";\")(5).toDouble\n    \n    ( cpf, (saldoVigente - saldoAnterior) )\n})\n\ncontasSaldo.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:33-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(11111111111,1000.0)\n(11111111111,-4570.010000000002)\n(22222222222,-2000.0)\n(22222222222,34963.619999999995)\n\u001b[1m\u001b[34mcontasSaldo\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Double)]\u001b[0m = MapPartitionsRDD[71] at map at <console>:29\n\u001b[1m\u001b[34mbensDireitosContribuintesSaldo\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Double)]\u001b[0m = MapPartitionsRDD[72] at map at <console>:38\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=115",
+              "$$hashKey": "object:21431"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=116",
+              "$$hashKey": "object:21432"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601590291195_993761500",
+      "id": "paragraph_1601590291195_993761500",
+      "dateCreated": "2020-10-01T19:11:31-0300",
+      "dateStarted": "2020-10-02T07:29:33-0300",
+      "dateFinished": "2020-10-02T07:29:34-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20719"
+    },
+    {
+      "title": "Agrupamento dos saldos a partir de uma chave (no exemplo, CPF)",
+      "text": "val contasDiferencaSaldo = contasSaldo.reduceByKey( (v1, v2) => v1 + v2 )\ncontasDiferencaSaldo.take(5).foreach(println)\n\nprintln(\"---\")\n\nval pessoasDiferencaPatrimonial = bensDireitosContribuintesSaldo.reduceByKey( (v1, v2) => v1 + v2 )\npessoasDiferencaPatrimonial.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:34-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(22222222222,32963.619999999995)\n(11111111111,-3570.010000000002)\n---\n(22222222222,32963.619999999995)\n(11111111111,-2570.010000000002)\n\u001b[1m\u001b[34mcontasDiferencaSaldo\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Double)]\u001b[0m = ShuffledRDD[73] at reduceByKey at <console>:29\n\u001b[1m\u001b[34mpessoasDiferencaPatrimonial\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Double)]\u001b[0m = ShuffledRDD[74] at reduceByKey at <console>:34\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=117",
+              "$$hashKey": "object:21494"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=118",
+              "$$hashKey": "object:21495"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=119",
+              "$$hashKey": "object:21496"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=120",
+              "$$hashKey": "object:21497"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601629672268_1153058086",
+      "id": "paragraph_1601629672268_1153058086",
+      "dateCreated": "2020-10-02T06:07:52-0300",
+      "dateStarted": "2020-10-02T07:29:34-0300",
+      "dateFinished": "2020-10-02T07:29:35-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20720"
+    },
+    {
+      "text": "// Join...",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:35-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601630932829_312486389",
+      "id": "paragraph_1601630932829_312486389",
+      "dateCreated": "2020-10-02T06:28:52-0300",
+      "dateStarted": "2020-10-02T07:29:35-0300",
+      "dateFinished": "2020-10-02T07:29:36-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20721"
+    },
+    {
+      "text": "// Averiguar a diferença na tupla (cpf, (saldoBancos, saldoContrib))",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T07:29:36-0300",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601633459325_2112662632",
+      "id": "paragraph_1601633459325_2112662632",
+      "dateCreated": "2020-10-02T07:10:59-0300",
+      "dateStarted": "2020-10-02T07:29:36-0300",
+      "dateFinished": "2020-10-02T07:29:36-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:20722"
+    }
+  ],
+  "name": "MalhaFina Fase 2 - Bens e Direitos",
+  "id": "2FJPK43YN",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/MalhaFina Fase 2 - Bens e Direitos"
+}

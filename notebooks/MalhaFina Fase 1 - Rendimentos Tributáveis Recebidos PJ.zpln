@@ -1,0 +1,603 @@
+﻿{
+  "paragraphs": [
+    {
+      "title": "Iniciando o Projeto Malha Fina",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:10-0300",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "editorHide": true,
+        "title": true,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:2: \u001b[31merror: \u001b[0midentifier expected but '.' found.\n       A ideia surgiu ...\n                       ^\n<console>:2: \u001b[31merror: \u001b[0midentifier expected but '.' found.\n       A ideia surgiu ...\n                        ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341929_25645826",
+      "id": "paragraph_1601582447640_1573977963",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:8768"
+    },
+    {
+      "title": "Caminho dos arquivos dataset",
+      "text": "val datasetsPath = \"/home/gustavo/Projetos/MalhaFina/datasets/\"",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:10-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdatasetsPath\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341932_162967806",
+      "id": "paragraph_1601589677519_231413253",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8769",
+      "dateFinished": "2020-10-02T18:05:11-0300",
+      "dateStarted": "2020-10-02T18:05:10-0300"
+    },
+    {
+      "title": "Criando o primeiro RDD, contendo os dados de benefícios de todas as pessoas jurídicas",
+      "text": "val rddBeneficios = sc.textFile(datasetsPath + \"pessoas-juridicas/beneficios.csv\")\nrddBeneficios.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T19:07:52-0300",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Ano Calendário;CNPJ Fonte pagadora;CPF do Beneficiário;Rendimentos Recebidos;Décimo Terceiro Salário\n2019;57070139000129;11111111111;36000.00;3000.00\n2019;27448957000151;11111111111;4800.00;4000.00\n2019;05201556000160;22222222222;117600.00;9800.00\n2019;61681195000177;33333333333;21600.00;1800.00\n\u001b[1m\u001b[34mrddBeneficios\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/pessoas-juridicas/beneficios.csv MapPartitionsRDD[9] at textFile at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=11",
+              "$$hashKey": "object:16519"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=12",
+              "$$hashKey": "object:16520"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341932_1700403174",
+      "id": "paragraph_1601582477888_1736612005",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8770",
+      "dateFinished": "2020-10-02T18:05:13-0300",
+      "dateStarted": "2020-10-02T18:05:11-0300"
+    },
+    {
+      "title": "Obter a primeira linha do arquivo, que no exemplo equivale ao cabeçalho",
+      "text": "val beneficiosHeader = rddBeneficios.first()",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:13-0300",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mbeneficiosHeader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = Ano Calendário;CNPJ Fonte pagadora;CPF do Beneficiário;Rendimentos Recebidos;Décimo Terceiro Salário\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=13",
+              "$$hashKey": "object:10683"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341932_695442834",
+      "id": "paragraph_1601582528193_802286017",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8771",
+      "dateFinished": "2020-10-02T18:05:14-0300",
+      "dateStarted": "2020-10-02T18:05:13-0300"
+    },
+    {
+      "title": "RDD que contém todos os registros do arquivo, exceto o cabeçalho",
+      "text": "val beneficios = rddBeneficios.filter(line => !line.equals(beneficiosHeader))\nbeneficios.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:14-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "2019;57070139000129;11111111111;36000.00;3000.00\n2019;27448957000151;11111111111;4800.00;4000.00\n2019;05201556000160;22222222222;117600.00;9800.00\n2019;61681195000177;33333333333;21600.00;1800.00\n\u001b[1m\u001b[34mbeneficios\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = MapPartitionsRDD[10] at filter at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=14",
+              "$$hashKey": "object:10747"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=15",
+              "$$hashKey": "object:10748"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341933_1415866829",
+      "id": "paragraph_1601589322027_1570632810",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8772",
+      "dateFinished": "2020-10-02T18:05:16-0300",
+      "dateStarted": "2020-10-02T18:05:14-0300"
+    },
+    {
+      "text": "val rddBeneficiarios = sc.textFile(datasetsPath + \"contribuintes/rendimentos_tribut_receb_pj.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:16-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mrddBeneficiarios\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/contribuintes/rendimentos_tribut_receb_pj.csv MapPartitionsRDD[12] at textFile at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341933_2117672038",
+      "id": "paragraph_1601589585062_1248694952",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8773",
+      "dateFinished": "2020-10-02T18:05:17-0300",
+      "dateStarted": "2020-10-02T18:05:17-0300",
+      "title": "RDD a partir dos dados enviados pelos contribuintes"
+    },
+    {
+      "text": "val beneficiariosHeader = rddBeneficiarios.first()\n\n// Filtrar retornando um RDD com todas as linhas exceto a primera\nval beneficiarios = rddBeneficiarios.filter(linha => !linha.equals(beneficiariosHeader))\nbeneficiarios.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:05:17-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "2019;57070139000129;11111111111;36000.00;3000.00\n2019;27448957000151;11111111111;4800.00;4000.00\n2019;05201556000160;22222222222;117600.00;9800.00\n2019;61681195000177;33333333333;21600.00;1800.00\n\u001b[1m\u001b[34mbeneficiariosHeader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = Ano Calendário;CNPJ Fonte pagadora;CPF do Beneficiário;Rendimentos Recebidos;Décimo Terceiro Salário\n\u001b[1m\u001b[34mbeneficiarios\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = MapPartitionsRDD[13] at filter at <console>:31\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=16",
+              "$$hashKey": "object:10865"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=17",
+              "$$hashKey": "object:10866"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=18",
+              "$$hashKey": "object:10867"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341933_1450202762",
+      "id": "paragraph_1601590206313_423096080",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8774",
+      "dateFinished": "2020-10-02T18:05:19-0300",
+      "dateStarted": "2020-10-02T18:05:17-0300"
+    },
+    {
+      "title": "Transformação dos RDDs obtendo o total dos rendimentos",
+      "text": "// Utiliza os dados enviados pelas pessoas jurídicas\nval beneficiosTotalRendimentos = beneficios.map(beneficio => {\n    val arrBeneficio = beneficio.split(\";\")\n    \n    val cnpj = arrBeneficio(1)\n    val cpf = arrBeneficio(2)\n    val rendimento = arrBeneficio(3).toDouble\n    val decimoTerceiro = arrBeneficio(4).toDouble\n    \n    ( cpf, (cnpj, rendimento + decimoTerceiro) )\n})\n\nprintln(\"Dados de Benefícios enviados pelas Pessoas Jurídicas\")\nbeneficiosTotalRendimentos.take(5).foreach(println)\n\nprintln(\"---\")\n\n// Utiliza os dados enviados pelos contribuintes\nval beneficiariosTotalRendimentos = beneficiarios.map(beneficiario => {\n    val arrBeneficiario = beneficiario.split(\";\")\n    \n    val cnpj = arrBeneficiario(1)\n    val cpf = arrBeneficiario(2)\n    val rendimento = arrBeneficiario(3).toDouble\n    val decimoTerceiro = arrBeneficiario(4).toDouble\n    \n    ( cpf, (cnpj, rendimento + decimoTerceiro) )\n})\n\nprintln(\"Dados de Benefícios enviados pelos contribuintes\")\nbeneficiariosTotalRendimentos.take(5).foreach(println)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T18:39:48-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Dados de Benefícios enviados pelas Pessoas Jurídicas\n(11111111111,(57070139000129,39000.0))\n(11111111111,(27448957000151,8800.0))\n(22222222222,(05201556000160,127400.0))\n(33333333333,(61681195000177,23400.0))\n---\nDados de Benefícios enviados pelos contribuintes\n(11111111111,(57070139000129,39000.0))\n(11111111111,(27448957000151,8800.0))\n(22222222222,(05201556000160,127400.0))\n(33333333333,(61681195000177,23400.0))\n\u001b[1m\u001b[34mbeneficiosTotalRendimentos\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, (String, Double))]\u001b[0m = MapPartitionsRDD[28] at map at <console>:31\n\u001b[1m\u001b[34mbeneficiariosTotalRendimentos\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, (String, Double))]\u001b[0m = MapPartitionsRDD[29] at map at <console>:48\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=41",
+              "$$hashKey": "object:12478"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=42",
+              "$$hashKey": "object:12479"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=43",
+              "$$hashKey": "object:12480"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=44",
+              "$$hashKey": "object:12481"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341933_1763712870",
+      "id": "paragraph_1601590291195_993761500",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8775",
+      "dateFinished": "2020-10-02T18:39:49-0300",
+      "dateStarted": "2020-10-02T18:39:48-0300"
+    },
+    {
+      "title": "Regra de negócio 1: Verificar se o contribuinte informou corretamente todos os benefícios que recebeu",
+      "text": "val rddDadosContribuintes = sc.textFile(datasetsPath + \"contribuintes.csv\")\nval header = rddDadosContribuintes.first()\nval dadosContribuintes = rddDadosContribuintes.filter(linha => !linha.equals(header)).map(contribuinte => ( contribuinte.split(\";\")(0), contribuinte.split(\";\")(1) ) )\ndadosContribuintes.take(5).foreach(println)\n\nval pjsPorContribuinte = beneficiariosTotalRendimentos.map(reg => (reg._1, reg._2._1) )\n//pjsPorContribuinte.take(5).foreach(println)\n\n//println(\"---\")\n\nval dadosRendTribPjs = beneficiosTotalRendimentos.map(reg => (reg._1, reg._2._1) )\n//dadosRendTribPjs.take(5).foreach(println)\n\nval pjsPorContribuinteGroup = pjsPorContribuinte.groupByKey\n//pjsPorContribuinteGroup.take(5).foreach(println)\n\nprintln(\"---\")\n\nval dadosRendTribPjsGroup = dadosRendTribPjs.groupByKey\n//dadosRendTribPjsGroup.take(5).foreach(println)\n\nprintln(\"---\")\n\nval beneficInformacoesFaltando = pjsPorContribuinteGroup.fullOuterJoin(dadosRendTribPjsGroup).filter(reg => reg._2._1.equals(None)).map(reg => \"CPF: \" + reg._1)\n\nprintln(\"---\")\nprintln(\"Contribuintes com divergências nos rendimentos tributáveis declarados:\")\n\nbeneficInformacoesFaltando.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T19:32:51-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(11111111111,Gustavo)\n(22222222222,Sarah)\n(33333333333,Ewerton)\n(44444444444,Jessica)\n(55555555555,Flora)\n---\n---\n---\nContribuintes com divergências nos rendimentos tributáveis declarados:\nCPF44444444444\n\u001b[1m\u001b[34mrddDadosContribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = /home/gustavo/Projetos/MalhaFina/datasets/contribuintes.csv MapPartitionsRDD[321] at textFile at <console>:39\n\u001b[1m\u001b[34mheader\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = CPF;Nome;Sexo;Data de Nascimento\n\u001b[1m\u001b[34mdadosContribuintes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, String)]\u001b[0m = MapPartitionsRDD[323] at map at <console>:41\n\u001b[1m\u001b[34mpjsPorContribuinte\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, String)]\u001b[0m = MapPartitionsRDD[324] at map at <console>:44\n\u001b[1m\u001b[34mdadosRendTribPjs\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, String)]\u001b[0m = MapPartitionsRDD[325] at map at <console>:49\n\u001b[1m\u001b[34mpjsPorContribuinteGroup\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Iterable[String])]\u001b[0m = ShuffledRDD[326...\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=204",
+              "$$hashKey": "object:20431"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=205",
+              "$$hashKey": "object:20432"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=206",
+              "$$hashKey": "object:20433"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=207",
+              "$$hashKey": "object:20434"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=208",
+              "$$hashKey": "object:20435"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341934_1013760303",
+      "id": "paragraph_1601629672268_1153058086",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8776",
+      "dateFinished": "2020-10-02T19:32:35-0300",
+      "dateStarted": "2020-10-02T19:32:33-0300"
+    },
+    {
+      "text": "// ...",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-02T19:01:46-0300",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601671341934_1503348286",
+      "id": "paragraph_1601630932829_312486389",
+      "dateCreated": "2020-10-02T17:42:21-0300",
+      "status": "FINISHED",
+      "$$hashKey": "object:8777",
+      "dateFinished": "2020-10-02T19:01:47-0300",
+      "dateStarted": "2020-10-02T19:01:46-0300",
+      "title": "Regra de negócio 2: Verificar se os valores informados pelos contribuintes \"batem\" com os dados enviados pelas PJs"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1601674385471_1796192515",
+      "id": "paragraph_1601674385471_1796192515",
+      "dateCreated": "2020-10-02T18:33:05-0300",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:12006"
+    }
+  ],
+  "name": "MalhaFina Fase 1 - Rendimentos Tributáveis Recebidos PJ",
+  "id": "2FKJBV8SU",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/MalhaFina Fase 1 - Rendimentos Tributáveis Recebidos PJ"
+}
