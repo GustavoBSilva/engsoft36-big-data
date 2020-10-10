@@ -76,18 +76,30 @@ object Fase2 {
 
     val saldos = spark.sql("select cpf, situacao_vigente - situacao_anterior as saldo from saldo_contas")
       .createOrReplaceTempView("total_saldo_contas")
-    val totalSaldos = spark.sql("select cpf, sum(saldo) from total_saldo_contas group by cpf")
+    val totalSaldos = spark.sql("select cpf, sum(saldo) total_saldo from total_saldo_contas group by cpf")
 
-    totalSaldos.show
-    
+    //totalSaldos.show
+
     contasContribuintesDF.filter($"ano_calendario" === 2019).select($"cpf", $"situacao_vigente", $"situacao_anterior").createOrReplaceTempView("saldo_contas_contribuintes")
-    
+
     val saldosContribuintes = spark.sql("select cpf, situacao_vigente - situacao_anterior as saldo from saldo_contas_contribuintes")
       .createOrReplaceTempView("total_saldo_contas_contribuintes")
-    val totalSaldosContribuintes = spark.sql("select cpf, sum(saldo) from total_saldo_contas_contribuintes group by cpf")
-    
-    totalSaldosContribuintes.show
+    val totalSaldosContribuintes = spark.sql("select cpf, sum(saldo) total_saldo from total_saldo_contas_contribuintes group by cpf")
 
+    //totalSaldosContribuintes.show
+
+    totalSaldos.createOrReplaceTempView("total_saldos")
+    totalSaldosContribuintes.createOrReplaceTempView("total_saldos_contribuintes")
+
+    val saldosNaoDeclaradosDF = spark.sql("SELECT if.cpf, if.total_saldo FROM total_saldos if"
+      + " WHERE if.cpf NOT IN (SELECT cpf FROM total_saldos_contribuintes)")
+
+    val saldosDivergentesDF = spark.sql("SELECT if.cpf, if.total_saldo total_saldo_contrib, ct.total_saldo total_saldo_inst_financ"
+      + " FROM total_saldos if"
+      + " JOIN total_saldos_contribuintes ct ON ct.cpf = if.cpf WHERE if.total_saldo <> ct.total_saldo")
+
+    writeJdbcWithoutOptions(spark, saldosNaoDeclaradosDF, SaveMode.Overwrite, "saldos_nao_declarados", connectionProperties)
+    writeJdbcWithoutOptions(spark, saldosDivergentesDF, SaveMode.Overwrite, "saldos_divergentes", connectionProperties)
   }
 
   private def writeJdbc(spark: SparkSession, dataFrame: DataFrame, tableName: String, connectionProperties: Properties): Unit = {

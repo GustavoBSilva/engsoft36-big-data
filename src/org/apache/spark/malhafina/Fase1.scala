@@ -67,13 +67,14 @@ object Fase1 {
     beneficiariosAnoCalendarioDF.createOrReplaceTempView("total_rendimentos_declarados_por_contribuintes")
 
     val dadosNaoDeclaradosDF = spark.sql("SELECT pj.cpf, pj.total_rendimentos FROM total_rendimentos_declarados_por_pjs pj"
-      + "WHERE pj.cpf NOT IN (SELECT cpf FROM total_rendimentos_declarados_por_contribuintes)")
+      + " WHERE pj.cpf NOT IN (SELECT cpf FROM total_rendimentos_declarados_por_contribuintes)")
 
-    val dadosDivergentesDF = spark.sql("SELECT pj.cpf, pj.total_rendimentos total_rendimentos_pj, ct.total_rendimentos total_rendimentos_contrib FROM total_rendimentos_declarados_por_pjs pj"
+    val dadosDivergentesDF = spark.sql("SELECT pj.cpf, pj.total_rendimentos total_rendimentos_pj, ct.total_rendimentos total_rendimentos_contrib"
+      + " FROM total_rendimentos_declarados_por_pjs pj"
       + " JOIN total_rendimentos_declarados_por_contribuintes ct ON ct.cpf = pj.cpf WHERE pj.total_rendimentos <> ct.total_rendimentos")
 
-    writeJdbc(spark, dadosNaoDeclaradosDF, "malhafina.nao_declarados", connectionProperties)
-    writeJdbc(spark, dadosDivergentesDF, "malhafina.divergentes", connectionProperties)
+    writeJdbcWithoutOptions(spark, dadosNaoDeclaradosDF, SaveMode.Overwrite, "malhafina.rendimentos_nao_declarados", connectionProperties)
+    writeJdbcWithoutOptions(spark, dadosDivergentesDF, SaveMode.Overwrite, "malhafina.rendimentos_divergentes", connectionProperties)
   }
 
   private def executarFase2(spark: SparkSession, connectionProperties: Properties): Unit = {
